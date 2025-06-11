@@ -27,7 +27,7 @@ An interactive Python project that uses **voice commands** to draw shapes on the
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/voice-shape-drawer.git
+git clone https://github.com/Edwin-1234/voice-shape-drawer.git
 cd voice-shape-drawer
 
 # 2. Install dependencies
