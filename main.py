@@ -52,28 +52,35 @@ recognizer = sr.Recognizer()
 with sr.Microphone() as source:
     print("🎤 Speak a sentence with words like 'circle', 'star', 'tree'...")
     audio = recognizer.listen(source)
-
 try:
     text = recognizer.recognize_google(audio)
     print("✅ You said:", text)
+
     words = text.lower().split()
 
     # Draw shapes based on words
     x, y = -200, 0
+    found_any_shape = False
+
     for word in words:
         shape = shape_map.get(word)
         if shape:
+            found_any_shape = True
             t.penup()
             t.goto(x, y)
             t.pendown()
             draw_shape(shape)
             x += 100
         else:
-            print(f"Skipping unrecognized word: {word}")
+            print(f"❔ Recognized word but no matching shape: {word}")
+
+    if not found_any_shape:
+        print("ℹ️ No shapes found to draw, but recognized your speech.")
 
 except sr.UnknownValueError:
-    print("❌ Could not understand audio.")
+    print("❌ Could not clearly understand anything. Try again.")
 except sr.RequestError:
-    print("❌ Could not request results from Google.")
+    print("❌ Error contacting Google Speech API. Check your internet connection.")
+
 
 turtle.done()
