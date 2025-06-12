@@ -9,7 +9,8 @@ shape_map = {
     'star': 'star',
     'tree': 'branch',
     'sun': 'circle',
-    'moon': 'circle'
+    'moon': 'circle',
+    'wheel':'circle'
 }
 
 # Setup turtle
