@@ -66,7 +66,8 @@ with mic as source:
 
             if 'stop' in text.lower():
                 print("🛑 Stopping program.")
-                break
+                turtle.bye()
+                exit()
 
             words = text.lower().split()
 
